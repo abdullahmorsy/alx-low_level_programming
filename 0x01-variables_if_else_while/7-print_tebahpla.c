@@ -1,20 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - prints the alphabet in reverse.
+(*
+ * Return: 0 on success
  */
-
 int main(void)
 {
-	char low;
+	char c = 'z';
 
-	for (low = 'z'; low >= 'a'; low--)
-		putchar(low);
-		putchar('\n');
-
+	while (c >= 'a')
+	{
+		putchar(c);
+		c--;
+	}
+	putchar('\n');
 	return (0);
 }
+
