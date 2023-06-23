@@ -1,10 +1,6 @@
 #ifndef MAIN_H 
  #define MAIN_H 
   
- /* 
-  * Desc: Header file containing prototypes for all functions 
-  *       used in the 0x03-more_functions_nested_loops directory. 
-  */ 
   
  int _putchar(char c); 
  int _isupper(int c); 
@@ -19,4 +15,8 @@
  void print_triangle(int size); 
  void print_number(int n); 
   
- #endif
+  
+ #endif  
+ /*  
+ Bwave ICT  
+ */
