@@ -1,24 +1,14 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
-* main - causes an infinite loop
-* Return: 0
-*/
-
-int main(void)
+ * _isdigit - Check for digits (0 through 9)
+ * @c: int type param
+ * Return: 1 if digit, else 0
+ */
+int _isdigit(int c)
 {
-	int i;
-
-	printf("Infinite loop incoming :(\n");
-
-	i = 0;
-
-	/*while (i < 10)*/
-	/*{*/
-	/*	putchar(i);*/
-	/*}*/
-
-	printf("Infinite loop avoided! \\o/\n");
+	if (c > 47 && c < 58)
+		return (1);
 
 	return (0);
 }
