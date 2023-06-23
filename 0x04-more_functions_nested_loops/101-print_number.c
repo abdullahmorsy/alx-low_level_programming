@@ -1,38 +1,36 @@
-#include "mainn.h"
-/**
- * print_number - prints a number
- * @n: Input number
- */
+#include "main.h"
+void print_integer(int m);
 
+/**
+ * print_number - a function that prints an integer.
+ * @n: An input integer
+ * Return: Nothing
+ */
 void print_number(int n)
 {
-	long len, res, i, temp, expo;
-
-	res = n;
-	expo = len =  1;
-/*Check negatives*/
-	if (res < 0)
+	if (n == 0)
+		_putchar('0');
+	else if (n < 0)
 	{
-		res *= -1;
 		_putchar('-');
+		print_integer(n * -1);
 	}
+	else
+		print_integer(n);
+}
 
-/**/
-	temp = res;
-	while (temp >= 10)
-	{
-		len++;
-		temp /= 10;
-	}
+/**
+ * print_integer - A function to priting n
+ * @m: an input unsigned integer
+ * Return: Nothing
+ */
+void print_integer(int m)
+{
+	int i = 1000000000;
 
-/*Create Exponent*/
-	for (i = 1; i < len; i++)
-		expo *= 10;
-/*Main */
-	while (expo > 1)
-	{
-		_putchar((res / expo) % 10 + '0');
-		expo /= 10;
-	}
-	_putchar(res % 10 + '0');
+	for (; i >= 1; i /= 10)
+		if (m / i != 0)
+		{
+			_putchar((m / i) % 10 + '0');
+		}
 }
