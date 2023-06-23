@@ -11,6 +11,12 @@ void print_number(int n)
 {
 	if (n == 0)
 		_putchar('0');
+	else if (n == INT_MIN)
+	{
+		_putchar('-');
+		print_integer(-(n + 1));
+		_putchar('8'); /* Print the last digit (8) manually */
+	}
 	else if (n < 0)
 	{
 		_putchar('-');
