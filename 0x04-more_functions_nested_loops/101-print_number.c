@@ -1,48 +1,22 @@
 #include "main.h"
-
-void print_integer(int m);
-
 /**
- * print_number - a function that prints an integer.
- * @n: An input integer
- * Return: Nothing
+ * print_number - prints an integer
+ * @n:.input integer parameter
+ *
+ *Owned by Bwave ICT/ Bright Daniel
  */
 void print_number(int n)
 {
-	if (n == 0)
-		_putchar('0');
-	else if (n == INT_MIN)
+	unsigned int i = n;
+
+	if (n < 0)
 	{
-		_putchar('-');
-		print_integer(-(n + 1));
-		_putchar('8'); /* Print the last digit (8) manually */
+		_putchar(45);
+		i = -i;
 	}
-	else if (n < 0)
+	if (i / 10)
 	{
-		_putchar('-');
-		print_integer(-n);
+		print_number(i / 10);
 	}
-	else
-		print_integer(n);
+	_putchar(i % 10 + '0');
 }
-
-/**
- * print_integer - A function to print n.
- * @m: an input unsigned integer
- * Return: Nothing
- */
-void print_integer(int m)
-{
-	int i = 1;
-
-	while (m / i >= 10)
-		i *= 10;
-
-	while (i > 0)
-	{
-		_putchar('0' + (m / i));
-		m %= i;
-		i /= 10;
-	}
-}
-
