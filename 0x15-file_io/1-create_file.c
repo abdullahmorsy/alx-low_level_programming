@@ -1,33 +1,48 @@
 #include "main.h"
+
 /**
- * create_file -creates an array of chars, and initializes
- *
- * @text_content: is a NULL terminated string to write to the file
- * @filename: is the name of the file to create
- *
- * Return: 1 on success, -1 on failure
+ *_strlen - function to get the length of a string
+ *@s: pointer to the string
+ *Return: length of the string
  */
-int create_file(const char *filename, char *text_content)
+
+int _strlen(char *s)
 {
-	int o, w, len = 0;
+	int i = 0;
 
-	if (filename == NULL)
-		return (-1);
+	if (!s)
+		return (0);
 
-	if (text_content != NULL)
-	{
-		for (len = 0; text_content[len];)
-			len++;
-	}
-
-	o = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	w = write(o, text_content, len);
-
-	if (o == -1 || w == -1)
-		return (-1);
-
-	close(o);
-
-	return (1);
+	while (*s++)
+		i++;
+	return (i);
 }
 
+/**
+ *create_file - function to create file with specific permissions
+ *@filename: name of the file to create
+ *@text_content: text of the file to be written
+ *Return: 1 on success and 0 on fail
+ */
+
+int create_file(const char *filename, char *text_content)
+{
+	/*declaration*/
+	int file;
+	ssize_t bytes = 0;
+	ssize_t length = _strlen(text_content);
+
+	if (!filename)
+		return (-1);
+
+	file = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+
+	if (file == -1)
+		return (-1);
+
+	if (length)
+		bytes = write(file, text_content, length);
+	close(file);
+
+	return (bytes == length ? 1 : -1);
+}
